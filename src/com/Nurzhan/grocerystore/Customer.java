@@ -13,7 +13,8 @@ public class Customer {
         this.isMember = isMember;
     }
 
-    public int getCustomerID() {
+    public int getCustomerID()
+    {
         return customerID;
     }
     public String getName() {
@@ -57,7 +58,6 @@ public class Customer {
             return 0.0;
         }
     }
-    @Override
     public String toString() {
         return "Customer ID: " + customerID +
                 ", Name: " + name +
