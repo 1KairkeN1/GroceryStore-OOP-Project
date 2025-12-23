@@ -5,7 +5,7 @@ public class Main {
 
         Customer c1 = new Customer(101, "Nurzhan", 150.0, true);
         Product p1 = new Product(501, "Bread", 4.50, 20);
-        Workers e1 = new Workers(201, "Nursultan", 15.0); // Changed Employee to Worker
+        Workers e1 = new Workers(201, "Nursultan", 15.0);
 
         System.out.println("--- Start ---");
         System.out.println(c1.toString());
