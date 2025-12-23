@@ -31,7 +31,7 @@ public class Workers {
     public void setHoursWorked(double hoursWorked)
     { this.hoursWorked = hoursWorked; }
 
-    public void logHours(double hours) {
+    public void WorkHours(double hours) {
         if (hours > 0) {
             this.hoursWorked += hours;
             System.out.println(name + " worked for " + hours + " hours.");

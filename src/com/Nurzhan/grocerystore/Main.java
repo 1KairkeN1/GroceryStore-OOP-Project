@@ -12,6 +12,10 @@ public class Main {
         System.out.println(p1.toString());
         System.out.println(e1.toString());
 
+        System.out.println("\n=== Getter test ===");
+        String name = p1.getProductName();
+        System.out.println("Product: " + name);
+
         System.out.println("\n--- Processing Transactions ---");
 
         c1.addPurchase(60.0);
@@ -22,13 +26,16 @@ public class Main {
             System.out.println("Transaction successful. Remaining stock: " + p1.getQuantity());
         }
 
-        e1.logHours(8.0);
+        e1.WorkHours(8.0);
         System.out.println(e1.getName() + "'s Paycheck: $" + e1.calculatePaycheck());
 
         System.out.println("\n--- End ---");
         System.out.println(c1.toString());
         System.out.println(p1.toString());
         System.out.println(e1.toString());
-        //wwww
+
+        System.out.println("\n=== Setter test ===");
+        p1.setProductName("Bread1");
+        System.out.println(p1.getProductName());
     }
 }

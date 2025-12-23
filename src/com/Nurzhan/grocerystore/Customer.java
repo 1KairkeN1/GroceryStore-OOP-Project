@@ -46,7 +46,7 @@ public class Customer {
     public void addPurchase(double amount) {
         if (amount > 0) {
             this.totalPurchase = this.totalPurchase + amount;
-            System.out.println("Added purchase of $" + amount + " to " + this.name);
+            System.out.println("Added $" + amount + " purchase to " + this.name);
         } else {
             System.out.println("Invalid purchase amount.");
         }
@@ -59,9 +59,9 @@ public class Customer {
         }
     }
     public String toString() {
-        return "Customer ID: " + customerID +
+        return "Customer [ID: " + customerID +
                 ", Name: " + name +
                 ", Total Spent: $" + totalPurchase +
-                ", Member: " + isMember;
+                ", Member: " + isMember + "]";
     }
 }
