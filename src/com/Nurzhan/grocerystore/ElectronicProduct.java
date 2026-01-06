@@ -13,7 +13,6 @@ public class ElectronicProduct extends Product {
 
     @Override
     public String getInfo() {
-        // We use super.getInfo() to get the ID, Name, and Price from the Parent
         return super.getInfo() + " | Brand: " + brandName;
     }
 }
