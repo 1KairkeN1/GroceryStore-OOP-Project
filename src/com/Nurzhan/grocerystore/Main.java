@@ -1,41 +1,53 @@
 package com.Nurzhan.grocerystore;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+        ArrayList<Product> inventory = new ArrayList<>();
+        Scanner sc = new Scanner(System.in);
+
+        inventory.add(new FreshProduct(501, "Bread", 4.50, 20, "2026-01-15"));
+        inventory.add(new ElectronicProduct(601, "Scale", 55.0, 10, "Samsung"));
 
         Customer c1 = new Customer(101, "Nurzhan", 150.0, true);
-        Product p1 = new Product(501, "Bread", 4.50, 20);
         Workers e1 = new Workers(201, "Nursultan", 15.0);
 
-        System.out.println("--- Start ---");
-        System.out.println(c1.toString());
-        System.out.println(p1.toString());
-        System.out.println(e1.toString());
+        System.out.println("--- STORE SYSTEM ---");
+        System.out.println("Commands: list, brand, status, exit");
 
-        System.out.println("\n=== Getter test ===");
-        String name = p1.getProductName();
-        System.out.println("Product: " + name);
+        while (true) {
+            System.out.print("\nEnter command: ");
+            String command = sc.next();
 
-        System.out.println("\n--- Processing Transactions ---");
+            if (command.equals("list")) {
+                System.out.println("--- Current Inventory ---");
+                for (Product p : inventory) {
+                    System.out.println(p.getInfo());
+                }
+            }
 
-        c1.addPurchase(60.0);
-        System.out.println("Customer Discount: " + (c1.calculateDiscount() * 100) + "%");
+            if (command.equals("brand")) {
+                System.out.println("--- Electronic Brands ---");
+                for (Product p : inventory) {
+                    if (p instanceof ElectronicProduct) {
+                        ElectronicProduct ep = (ElectronicProduct) p;
+                        System.out.println(ep.getProductName() + ": " + ep.getBrandName());
+                    }
+                }
+            }
 
-        boolean sold = p1.sell(2);
-        if (sold) {
-            System.out.println("Transaction successful. Remaining stock: " + p1.getQuantity());
+            if (command.equals("status")) {
+                System.out.println("--- People Records ---");
+                System.out.println(c1.toString());
+                System.out.println(e1.toString());
+            }
+
+            if (command.equals("exit")) {
+                System.out.println("System closed.");
+                break;
+            }
         }
-
-        e1.WorkHours(8.0);
-        System.out.println(e1.getName() + "'s Paycheck: $" + e1.calculatePaycheck());
-
-        System.out.println("\n--- End ---");
-        System.out.println(c1.toString());
-        System.out.println(p1.toString());
-        System.out.println(e1.toString());
-
-        System.out.println("\n=== Setter test ===");
-        p1.setProductName("Bread1");
-        System.out.println(p1.getProductName());
     }
 }
