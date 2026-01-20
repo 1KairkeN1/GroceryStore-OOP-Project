@@ -7,7 +7,7 @@ public class ElectronicProduct extends Product {
 
     public ElectronicProduct(int productID, String productName, double price, int quantity, String brandName)
             throws InvalidPriceException {
-        super(productID, productName, price, quantity);
+        super(productID, productName, price, quantity); // Calls the abstract parent constructor
         this.brandName = brandName;
     }
 

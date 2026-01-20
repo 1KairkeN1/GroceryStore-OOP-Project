@@ -20,7 +20,6 @@ public class MenuManager implements MenuInterface {
 
     @Override
     public void run() {
-        // We use try-catch here because creating a product might throw an InvalidPriceException
         try {
             inventory.add(new FreshProduct(101, "Apple", 2.5, 50, "2026-12-01"));
             inventory.add(new ElectronicProduct(202, "Digital Scale", 25.0, 5, "Samsung"));

@@ -7,7 +7,7 @@ public class FreshProduct extends Product {
 
     public FreshProduct(int productID, String productName, double price, int quantity, String expiryDate)
             throws InvalidPriceException {
-        super(productID, productName, price, quantity);
+        super(productID, productName, price, quantity); // Calls the abstract parent constructor
         this.expiryDate = expiryDate;
     }
 
