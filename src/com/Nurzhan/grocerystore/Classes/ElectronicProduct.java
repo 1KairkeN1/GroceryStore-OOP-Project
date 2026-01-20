@@ -1,9 +1,12 @@
-package com.Nurzhan.grocerystore;
+package com.Nurzhan.grocerystore.Classes;
+
+import com.Nurzhan.grocerystore.Exception.InvalidPriceException;
 
 public class ElectronicProduct extends Product {
     private String brandName;
 
-    public ElectronicProduct(int productID, String productName, double price, int quantity, String brandName) {
+    public ElectronicProduct(int productID, String productName, double price, int quantity, String brandName)
+            throws InvalidPriceException {
         super(productID, productName, price, quantity);
         this.brandName = brandName;
     }
@@ -14,5 +17,10 @@ public class ElectronicProduct extends Product {
     @Override
     public String getInfo() {
         return super.getInfo() + " | Brand: " + brandName;
+    }
+
+    @Override
+    public void performMaintenance() {
+        System.out.println("Testing battery and electrical safety for: " + getProductName());
     }
 }

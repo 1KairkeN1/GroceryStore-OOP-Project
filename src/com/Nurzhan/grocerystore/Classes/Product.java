@@ -1,17 +1,21 @@
-package com.Nurzhan.grocerystore;
+package com.Nurzhan.grocerystore.Classes;
 
-public class Product {
+import com.Nurzhan.grocerystore.Exception.InvalidPriceException;
+
+public abstract class Product {
     private int productID;
     private String productName;
     private double price;
     private int quantity;
 
-    public Product(int productID, String productName, double price, int quantity) {
+    public Product(int productID, String productName, double price, int quantity) throws InvalidPriceException {
         this.productID = productID;
         this.productName = productName;
         setPrice(price);
         setQuantity(quantity);
     }
+
+    public abstract void performMaintenance();
 
     public int getProductID() { return productID; }
     public String getProductName() { return productName; }
@@ -21,13 +25,11 @@ public class Product {
     public void setProductID(int productID) { this.productID = productID; }
     public void setProductName(String productName) { this.productName = productName; }
 
-    public void setPrice(double price) {
-        if (price >= 0) {
-            this.price = price;
-        } else {
-            System.out.println("Invalid price");
-            this.price = 0;
+    public void setPrice(double price) throws InvalidPriceException {
+        if (price < 0) {
+            throw new InvalidPriceException("Price cannot be negative: " + price);
         }
+        this.price = price;
     }
 
     public void setQuantity(int quantity) {
@@ -51,6 +53,7 @@ public class Product {
         return "ID: " + productID + " | Name: " + productName + " | Price: $" + price + " | Stock: " + quantity;
     }
 
+    @Override
     public String toString() {
         return getInfo();
     }

@@ -1,4 +1,4 @@
-package com.Nurzhan.grocerystore;
+package com.Nurzhan.grocerystore.Classes;
 
 public class Workers {
     private int WorkerID;
