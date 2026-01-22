@@ -39,7 +39,7 @@ public class MenuManager implements MenuInterface {
             } else if (choice.equals("status")) {
                 System.out.println("\n--- Maintenance Report ---");
                 for (Product p : inventory) {
-                    p.performMaintenance(); // This calls the abstract method we implemented
+                    p.performMaintenance();
                 }
             } else if (choice.equals("exit")) {
                 System.out.println("Exiting system. Goodbye!");
